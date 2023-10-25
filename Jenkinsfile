@@ -1,7 +1,7 @@
 pipeline {
     agent { label "Jenkins-Agent" }
     environment {
-              APP_NAME = "gitops-app-pipeline"
+              APP_NAME = "complete-production-e2e-pipeline-app"
     }
 
     stages {
