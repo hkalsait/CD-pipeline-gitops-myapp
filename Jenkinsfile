@@ -14,7 +14,7 @@ pipeline {
         stage("Checkout from SCM") {
                steps {
                   
-                   git branch: 'master', credentialsId: 'github', url: 'https://github.com/hkalsait/gitops-app'
+                   git branch: 'master', credentialsId: 'github', url: 'https://github.com/hkalsait/CD-pipeline-gitops-myapp'
                }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                    git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                   sh "git push --set-upstream https://github.com/hkalsait/gitops-app.git master"
+                   sh "git push --set-upstream https://github.com/hkalsait/CD-pipeline-gitops-myapp.git master"
                 }
             }
         }
