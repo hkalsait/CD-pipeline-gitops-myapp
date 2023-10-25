@@ -37,10 +37,9 @@ pipeline {
                    git init
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
-                   git push https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
                 """
                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                   sh "git push https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
+                   sh "git push -u -f https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
                 }
             }
         }
