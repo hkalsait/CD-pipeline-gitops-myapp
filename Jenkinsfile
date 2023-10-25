@@ -1,7 +1,11 @@
 pipeline {
-    agent { label "Jenkins-Agent" }
+
+    agent { 
+        label "Jenkins-Agent" 
+    }
+
     environment {
-              APP_NAME = "complete-production-e2e-pipeline-app"
+        APP_NAME = "complete-production-e2e-pipeline-app"
     }
 
     stages {
@@ -13,8 +17,7 @@ pipeline {
 
         stage("Checkout from SCM") {
                steps {
-                  
-                   git branch: 'master', credentialsId: 'github', url: 'https://github.com/hkalsait/CD-pipeline-gitops-myapp'
+                   git branch: 'master', credentialsId: 'github', url: 'https://github.com/hkalsait/CD-pipeline-gitops-myapp.git'
                }
         }
 
@@ -38,7 +41,7 @@ pipeline {
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-               withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
                    sh "git push -u -f https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
                 }
             }
