@@ -36,10 +36,11 @@ pipeline {
                    git config --global user.email "harsh5kalsait@gmail.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
+                   git push https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                /*withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
                    sh "git push https://github.com/hkalsait/CD-pipeline-gitops-myapp master"
-                }
+                }*/
             }
         }
       
