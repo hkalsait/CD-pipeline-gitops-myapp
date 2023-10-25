@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gitops-app
-          image: hkalsait/cicd-pipeline-app:1.0.0-24
+          image: hkalsait/cicd-pipeline-app:1.0.0-39
           resources:
             limits:
               memory: "256Mi"
